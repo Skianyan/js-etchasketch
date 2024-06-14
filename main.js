@@ -16,20 +16,21 @@ function generateGrid(size) {
 		const row = document.createElement("div");
 		row.setAttribute(
 			"style",
-			"display:flex; flex-direction:column; flex-grow:1; background-color:grey"
+			"display:flex; flex-direction:column; flex-grow:1; background-color:white"
 		);
 		gameGrid.appendChild(row);
 		for (j = 0; j < size; j++) {
 			const square = document.createElement("div");
 			square.setAttribute(
 				"style",
-				"display:flex; background:white; border: solid; border-width: 1px; padding: 5px;flex-grow:1"
+				"display:flex; background:black; border: solid; border-width: 1px; padding: 5px;flex-grow:1"
 			);
+			square.style.opacity = 0;
 			square.addEventListener("mouseover", function () {
-				square.setAttribute(
-					"style",
-					"display:flex; background:grey;  border: solid; border-width: 1px; padding: 5px;flex-grow:1"
-				);
+				let currentOpacity = parseFloat(square.style.opacity);
+				if (currentOpacity < 1) {
+					square.style.opacity = currentOpacity + 0.1;
+				}
 			});
 			row.appendChild(square);
 		}
