@@ -16,7 +16,7 @@ function generateGrid(size) {
 		const row = document.createElement("div");
 		row.setAttribute(
 			"style",
-			"display:flex; flex-direction:column; flex-grow:1; background-color:grey"
+			"display:flex; flex-direction:column; flex-grow:1; background-color:white"
 		);
 		gameGrid.appendChild(row);
 		for (j = 0; j < size; j++) {
@@ -28,7 +28,9 @@ function generateGrid(size) {
 			square.addEventListener("mouseover", function () {
 				square.setAttribute(
 					"style",
-					"display:flex; background:grey;  border: solid; border-width: 1px; padding: 5px;flex-grow:1"
+					"display:flex; background-color:#" +
+						Math.floor(Math.random() * 16777215).toString(16) +
+						";  border: solid; border-width: 1px; padding: 5px;flex-grow:1"
 				);
 			});
 			row.appendChild(square);
